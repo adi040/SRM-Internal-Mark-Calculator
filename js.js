@@ -22,26 +22,26 @@ document.addEventListener("DOMContentLoaded", function () {
         if (params.regulation === '2018') {
             if (params.course === 'theory') {
                 inputFields.innerHTML = `
-                    <label for="ct1">Cycle Test 1 (10 marks):</label>
+                    <label for="ct1">Cycle Test 1 (10%):</label>
                     <input type="number" id="ct1" max="10" min="0" required>
-                    <label for="ct2">Cycle Test 2 (15 marks):</label>
+                    <label for="ct2">Cycle Test 2 (15%):</label>
                     <input type="number" id="ct2" max="15" min="0" required>
-                    <label for="ct3">Cycle Test 3 (15 marks):</label>
+                    <label for="ct3">Cycle Test 3 (15%):</label>
                     <input type="number" id="ct3" max="15" min="0" required>
-                    <label for="ct4">Cycle Test 4 (10 marks):</label>
+                    <label for="ct4">Cycle Test 4 (10%):</label>
                     <input type="number" id="ct4" max="10" min="0" required>
                 `;
             } else if (params.course === 'joint') {
                 inputFields.innerHTML = `
-                    <label for="ct1">Cycle Test 1 (10 marks):</label>
+                    <label for="ct1">Cycle Test 1 (10%):</label>
                     <input type="number" id="ct1" max="10" min="0" required>
-                    <label for="ct2">Cycle Test 2 (15 marks):</label>
+                    <label for="ct2">Cycle Test 2 (15%):</label>
                     <input type="number" id="ct2" max="15" min="0" required>
-                    <label for="ct3">Cycle Test 3 (15 marks):</label>
+                    <label for="ct3">Cycle Test 3 (15%):</label>
                     <input type="number" id="ct3" max="15" min="0" required>
-                    <label for="ct4">Cycle Test 4 (10 marks):</label>
+                    <label for="ct4">Cycle Test 4 (10%):</label>
                     <input type="number" id="ct4" max="10" min="0" required>
-                    <label for="practical-lab">Lab Practical (25 marks):</label>
+                    <label for="practical-lab">Lab Practical (25%):</label>
                     <input type="number" id="practical-lab" max="25" min="0" required>
                 `;
             }
@@ -81,9 +81,13 @@ document.addEventListener("DOMContentLoaded", function () {
         }
         return true;
     }
-
+    function scro(){
+        resultsDiv.scrollIntoView();
+    }
+        
     // Calculate marks function
     window.calculateMarks = function () {
+        resultsDiv.scrollIntoView();
         const params = getQueryParams();
         let totalInternal = 0;
 
@@ -128,19 +132,49 @@ document.addEventListener("DOMContentLoaded", function () {
         } else if (params.regulation === '2021') {
             const weightage = params.course === 'theory' ? 0.4 : 1;
 
-            grades.forEach(grade => {
-                const requiredMarks = (grade.marks - totalInternal) / weightage;
-                if (requiredMarks > 0) {
-                    if (requiredMarks > 100) {
-                        resultHTML += `<p>Required Marks for ${grade.grade} Grade: Not possible</p>`;
-                    } else {
-                        resultHTML += `<p>Required Marks for ${grade.grade} Grade: ${requiredMarks.toFixed(2)}</p>`;
+            if (params.course==='theory'){
+                
+                grades.forEach(grade => {
+                    const requiredMarks = (grade.marks - totalInternal) / weightage;
+                    if (requiredMarks > 0) {
+                        if (requiredMarks > 100) {
+                            resultHTML += `<p>Required Marks for ${grade.grade} Grade: Not possible</p>`;
+                        } else {
+                            resultHTML += `<p>Required Marks for ${grade.grade} Grade: ${requiredMarks.toFixed(2)}</p>`;
+                        }
                     }
-                }
-            });
+                })}
+                else{
+                    
+                    if (totalInternal>=91 && totalInternal<=100){
+                        temp="O"
+                    }
+                    else if(totalInternal>=81 && totalInternal<=90){
+                        temp="A+"
+                    }
+                    else if(totalInternal>=71 && totalInternal<=80){
+                        temp="A"
+                    }
+                    else if(totalInternal>=61 && totalInternal<=70){
+                        temp="B+"
+                    }
+                    else if(totalInternal>=56 && totalInternal<=60){
+                        temp="B"
+                    }
+                    else if(totalInternal>=50 && totalInternal<=55){
+                        temp="C"
+                    }
+                    resultHTML += `<p>Your Grade: ${temp}</p>`;
+                };    
         }
 
         resultsDiv.innerHTML = resultHTML;
         resultsDiv.style.display = "block";
-    };
+        resultsDiv.scrollIntoView();
+        let y=document.getElementById("aaa");
+        y.scrollIntoView();
+    }
+    
+    
+    ;
 });
