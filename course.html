@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SRM Internal Mark Calculator - Course Type</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="js.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>SRM Internal Mark Calculator</h1>
+    </header>
+    <div id="course-buttons" class="button-container">
+        <h2>Select Course Type</h2>
+        <button id="theory-button" onclick="navigateToPage('input.html?course=theory&regulation=' + new URLSearchParams(window.location.search).get('regulation'))">Theory</button>
+        <button id="joint-button" onclick="navigateToPage('input.html?course=joint&regulation=' + new URLSearchParams(window.location.search).get('regulation'))">Joint</button>
+    </div>
+</body>
+</html>
