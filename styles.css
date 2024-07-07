@@ -1,3 +1,4 @@
+
 body {
     font-family: Arial, sans-serif;
     background-color: #f5f5f5;
@@ -7,20 +8,16 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-  
 }
-
 header {
     background-color: #4CAF50;
-    color: white;
+    color: rgb(255, 255, 255);
     padding: 20px;
     text-align: center;
     width: 100%;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin-bottom: 50px;
-   
 }
-
 .button-container {
     display: flex;
     flex-direction: column;
@@ -55,7 +52,6 @@ button:hover {
     margin: 5px;
     font-size: 16px;
 }
-
 #results {
     margin-top: 20px;
     padding: 20px;
@@ -66,10 +62,72 @@ button:hover {
     width: 100%;
     min-width: 500px;
     text-align: center;
-
-
 }
-a{
+a {
     text-decoration: none !important;
     color: #fff;
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    width: 100%;
+    background-color: #4CAF50;
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+    color: white;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}
+
+.footer-icon {
+    margin: 0 10px;
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.footer-icon:hover {
+    color: #ddd;
+}
+
+.image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.button-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.button-container button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    margin: 5px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.button-container button:hover {
+    background-color: #45a049;
+}
+
+footer {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.footer-icon {
+    margin: 0 10px;
+    color: #000;
+    text-decoration: none;
+}
+
+.footer-icon:hover {
+    color: #0077b5; 
 }
