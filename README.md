@@ -12,7 +12,7 @@ The SRM Internal Mark Calculator is a specialized web application tailored for s
 
 ## Features
 
-- **Cycle Test Marks Entry**: Users can enter marks for Cycle Test 1 and Cycle Test 2.
+- **Cycle Test Marks Entry**: Users can enter marks for Cycle Test 1 and Lab Practical.
 - **Dynamic Input Generation**: Input fields are dynamically inserted based on URL parameters.
 - **Results Display**: Calculation results are displayed in a user-friendly manner.
 - **Grade Predictor**:
