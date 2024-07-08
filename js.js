@@ -7,6 +7,14 @@ document.addEventListener("DOMContentLoaded", function () {
         window.location.href = url;
     };
 
+    // Add event listener to the home button
+    const homeButton = document.getElementById("home-button");
+    if (homeButton) {
+        homeButton.addEventListener("click", function() {
+            navigateToPage("index.html");
+        });
+    }
+
     // Helper function to get URL parameters
     function getQueryParams() {
         const urlParams = new URLSearchParams(window.location.search);
@@ -22,13 +30,13 @@ document.addEventListener("DOMContentLoaded", function () {
         if (params.regulation === '2018') {
             if (params.course === 'theory') {
                 inputFields.innerHTML = `
-                    <label for="ct1">Cycle Test 1 (10%):</label>
-                    <input type="number" id="ct1" max="10" min="0" required>
-                    <label for="ct2">Cycle Test 2 (15%):</label>
-                    <input type="number" id="ct2" max="15" min="0" required>
-                    <label for="ct3">Cycle Test 3 (15%):</label>
-                    <input type="number" id="ct3" max="15" min="0" required>
-                    <label for="ct4">Cycle Test 4 (10%):</label>
+                    <label for="ct1">Cycle Test 1 (25 Marks):</label>
+                    <input type="number" id="ct1" max="25" min="0" required>
+                    <label for="ct2">Cycle Test 2 (50 Marks):</label>
+                    <input type="number" id="ct2" max="50" min="0" required>
+                    <label for="ct3">Cycle Test 3 (50 Marks):</label>
+                    <input type="number" id="ct3" max="50" min="0" required>
+                    <label for="ct4">Cycle Test 4 (10 Marks):</label>
                     <input type="number" id="ct4" max="10" min="0" required>
                 `;
             } else if (params.course === 'joint') {
@@ -48,10 +56,10 @@ document.addEventListener("DOMContentLoaded", function () {
         } else if (params.regulation === '2021') {
             if (params.course === 'theory') {
                 inputFields.innerHTML = `
-                    <label for="ct1">Cycle Test 1 (50%):</label>
+                    <label for="ct1">Cycle Test 1 (50 Marks):</label>
                     <input type="number" id="ct1" max="50" min="0" required>
-                    <label for="ct2">Cycle Test 2 (10%):</label>
-                    <input type="number" id="ct2" max="10" min="0" required>
+                    <label for="ct2">Cycle Test 2 (50 Marks):</label>
+                    <input type="number" id="ct2" max="50" min="0" required>
                 `;
             } else if (params.course === 'joint') {
                 inputFields.innerHTML = `
@@ -81,27 +89,43 @@ document.addEventListener("DOMContentLoaded", function () {
         }
         return true;
     }
-    function scro(){
-        resultsDiv.scrollIntoView();
+
+    // Function to scroll to results section
+    function scrollToResults() {
+        resultsDiv.scrollIntoView({ behavior: "smooth" });
     }
-        
+
     // Calculate marks function
     window.calculateMarks = function () {
-        resultsDiv.scrollIntoView();
         const params = getQueryParams();
         let totalInternal = 0;
+        
 
         const inputs = document.querySelectorAll('#input-fields input');
         if (!validateInputs(inputs)) {
             resultsDiv.innerHTML = "<p>Please enter valid values for all fields.</p>";
             resultsDiv.style.display = "block";
+            scrollToResults();
             return;
         }
-
-        inputs.forEach(input => {
-            totalInternal += parseFloat(input.value) || 0;
-        });
-
+        
+        if (params.regulation === '2018' && params.course === 'theory'){
+            const ct1 = parseFloat(document.getElementById('ct1').value) || 0;
+            const ct2 = parseFloat(document.getElementById('ct2').value) || 0;
+            const ct3 = parseFloat(document.getElementById('ct3').value) || 0;
+            let ct4 = parseFloat(document.getElementById('ct4').value) || 0;
+            totalInternal = (ct1/2.5) + (ct2/3.3333333333333333333333333333333) + (ct3/3.3333333333333333333333333333333) + ct4
+        }
+        else if(params.regulation === '2021' && params.course === 'theory'){
+            const ct1 = parseFloat(document.getElementById('ct1').value) || 0;
+            const ct2 = parseFloat(document.getElementById('ct2').value) || 0;
+            totalInternal = (ct1) + (ct2/5)
+        }
+        else{
+            inputs.forEach(input => {
+                totalInternal += parseFloat(input.value) || 0;
+            });
+        }
         const grades = [
             { grade: 'O', marks: 91 },
             { grade: 'A+', marks: 81 },
@@ -130,12 +154,11 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
             });
         } else if (params.regulation === '2021') {
-            const weightage = params.course === 'theory' ? 0.4 : 1;
+            const weightage = params.course === 'theory' ? 2 : 1;
 
-            if (params.course==='theory'){
-                
+            if (params.course === 'theory') {
                 grades.forEach(grade => {
-                    const requiredMarks = (grade.marks - totalInternal) / weightage;
+                    const requiredMarks = (grade.marks - totalInternal) * weightage;
                     if (requiredMarks > 0) {
                         if (requiredMarks > 100) {
                             resultHTML += `<p>Required Marks for ${grade.grade} Grade: Not possible</p>`;
@@ -143,38 +166,29 @@ document.addEventListener("DOMContentLoaded", function () {
                             resultHTML += `<p>Required Marks for ${grade.grade} Grade: ${requiredMarks.toFixed(2)}</p>`;
                         }
                     }
-                })}
-                else{
-                    
-                    if (totalInternal>=91 && totalInternal<=100){
-                        temp="O"
-                    }
-                    else if(totalInternal>=81 && totalInternal<=90){
-                        temp="A+"
-                    }
-                    else if(totalInternal>=71 && totalInternal<=80){
-                        temp="A"
-                    }
-                    else if(totalInternal>=61 && totalInternal<=70){
-                        temp="B+"
-                    }
-                    else if(totalInternal>=56 && totalInternal<=60){
-                        temp="B"
-                    }
-                    else if(totalInternal>=50 && totalInternal<=55){
-                        temp="C"
-                    }
-                    resultHTML += `<p>Your Grade: ${temp}</p>`;
-                };    
+                });
+            } else {
+                let gradeObtained = 'F';
+                if (totalInternal >= 91) {
+                    gradeObtained = 'O';
+                } else if (totalInternal >= 81) {
+                    gradeObtained = 'A+';
+                } else if (totalInternal >= 71) {
+                    gradeObtained = 'A';
+                } else if (totalInternal >= 61) {
+                    gradeObtained = 'B+';
+                } else if (totalInternal >= 56) {
+                    gradeObtained = 'B';
+                } else if (totalInternal >= 50) {
+                    gradeObtained = 'C';
+                }
+
+                resultHTML += `<p>Your Grade: ${gradeObtained}</p>`;
+            }
         }
 
         resultsDiv.innerHTML = resultHTML;
         resultsDiv.style.display = "block";
-        resultsDiv.scrollIntoView();
-        let y=document.getElementById("aaa");
-        y.scrollIntoView();
+        scrollToResults();
     }
-    
-    
-    ;
 });
