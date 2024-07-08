@@ -3,27 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SRM Internal Mark Calculator - Regulation</title>
+    <title>SRM Internal Mark Calculator - Home</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <script src="js.js" defer></script>
 </head>
 <body>
     <header>
+        <div class="menu">
+            <button onclick="navigateToPage('index.html')"id="home-button">Home</button>
+            <button onclick="navigateToPage('howtouse.html')">How to Use?</button>
+
+        </div>
         <h1>SRM Internal Mark Calculator</h1>
     </header>
-    <div id="regulation-buttons" class="button-container">
-        <button id="regulation-2018" onclick="navigateToPage('course.html?regulation=2018')">Regulation 2018</button>
-        <button id="regulation-2021" onclick="navigateToPage('course.html?regulation=2021')">Regulation 2021</button>
+
+    <div class="image-section">
+        <img src="e2.png" alt="Background Image">
+        <div class="overlay">
+            <!-- Welcome Section -->
+            <section id="welcome">
+                <h2>Welcome to SRM Internal Mark Calculator</h2>
+            </section>
+            <!-- About Section -->
+            <section id="about">
+                <h2>About SRM Internal Mark Calculator</h2>
+                <p>
+                    The <strong>SRM Internal Mark Calculator</strong> is a dedicated tool designed to simplify the calculation of internal marks for students at SRM Institute of Science and Technology. Keeping track of your academic performance can be challenging, especially when you have multiple courses and it also calculates the marks to be taken in Semester exam to get the desired grades.
+                </p>
+                <p>
+                    This calculator allows you to easily input your scores and instantly see your internal marks. Whether you follow the 2018 or 2021 regulation, this tool is tailored to meet the specific academic structure of SRM IST, ensuring accurate and quick results. Simplify your academic journey and focus on what matters most with the SRM Internal Mark Calculator.
+                </p>
+            </section>
+            <div id="regulation-buttons" class="button-container">
+                <button id="regulation-2018" onclick="navigateToPage('course.html?regulation=2018')">Regulation 2018</button>
+                <button id="regulation-2021" onclick="navigateToPage('course.html?regulation=2021')">Regulation 2021</button>
+            </div>
+        </div>
     </div>
 
+    <!-- Footer Section -->
     <footer>
-        <a href="https://github.com/adi040" target="_blank" class="footer-icon">
-            <i class="fab fa-github"></i> GitHub
-        </a>
-        <a href="https://www.linkedin.com/in/p-adithyan/" target="_blank" class="footer-icon">
-            <i class="fab fa-linkedin"></i> LinkedIn
-        </a>
+        <div class="footer-left">
+            © Designed by Adithyan
+        </div>
+        <div class="footer-center">
+            <a href="https://github.com/adi040" target="_blank" class="footer-icon">
+                <i class="fab fa-github"></i> GitHub
+            </a>
+            <a href="https://www.linkedin.com/in/p-adithyan/" target="_blank" class="footer-icon">
+                <i class="fab fa-linkedin"></i> LinkedIn
+            </a>
+        </div>
     </footer>
 </body>
 </html>
