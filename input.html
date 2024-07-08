@@ -11,12 +11,22 @@
     <header>
         <h1>SRM Internal Mark Calculator</h1>
     </header>
-    <div id="input-fields">
-        <!-- Input fields will be dynamically inserted here based on URL parameters -->
+    <div class="menu">
+        <button onclick="navigateToPage('index.html')" id="home-button">Home</button>
+        <button onclick="navigateToPage('howtouse.html')">How to Use?</button>
     </div>
-    <button id="calculate-button" onclick="calculateMarks()" onclick="scro">Calculate</button>
-    <div id="aaaa"><div id="results" style="display: none;">
+    <div class="input-container" id="input-fields">
+        <!-- Input fields will be dynamically inserted here based on URL parameters -->
+        <!-- Example input fields with a specific class for targeting -->
+        <label for="cycle-test-1">Cycle Test 1 Marks:</label>
+        <input type="number" id="cycle-test-1" class="input-small" placeholder="Enter marks">
+        
+        <label for="cycle-test-2">Cycle Test 2 Marks:</label>
+        <input type="number" id="cycle-test-2" class="input-small" placeholder="Enter marks">
+    </div>
+    <button id="calculate-button" onclick="calculateMarks()">Calculate</button>
+    <div id="results" style="display: none;">
         <!-- Calculation results will be displayed here -->
-    </div></div>
+    </div>
 </body>
 </html>
