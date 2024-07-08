@@ -12,19 +12,24 @@
     <header>
         <h1>SRM Internal Mark Calculator</h1>
     </header>
+    <div class="menu">
+        <button onclick="navigateToPage('index.html')" id="home-button">Home</button>
+        <button onclick="navigateToPage('howtouse.html')">How to Use?</button>
+    </div>
     <div id="course-buttons" class="button-container">
         <h2>Select Course Type</h2>
         <button id="theory-button" onclick="navigateToPage('input.html?course=theory&regulation=' + new URLSearchParams(window.location.search).get('regulation'))">Theory</button>
         <button id="joint-button" onclick="navigateToPage('input.html?course=joint&regulation=' + new URLSearchParams(window.location.search).get('regulation'))">Joint</button>
     </div>
-
     <footer>
-        <a href="https://github.com/adi040" target="_blank" class="footer-icon">
-            <i class="fab fa-github"></i> GitHub
-        </a>
-        <a href="https://www.linkedin.com/in/p-adithyan/" target="_blank" class="footer-icon">
-            <i class="fab fa-linkedin"></i> LinkedIn
-        </a>
+        <div class="footer-center course-footer"> <!-- Specific class for course.html -->
+            <a href="https://github.com/adi040" target="_blank" class="footer-icon">
+                <i class="fab fa-github"></i> GitHub
+            </a>
+            <a href="https://www.linkedin.com/in/p-adithyan/" target="_blank" class="footer-icon">
+                <i class="fab fa-linkedin"></i> LinkedIn
+            </a>
+        </div>
     </footer>
 </body>
 </html>
