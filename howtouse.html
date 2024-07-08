@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Use - SRM Internal Mark Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="menu">
+            <button id="home-button">Home</button>
+        </div>
+        <h1>How to Use SRM Internal Mark Calculator</h1>
+    </header>
+    <main>
+        <section id="why-use">
+            <h2>Why Use SRM Internal Mark Calculator?</h2>
+            <div class="why-use-container">
+                <div class="why-use-box">
+                    <h3>Accurate & Reliable</h3>
+                    <p>1. Tailored to SRM IST regulations.</p>
+                    <p>2. Provides instant and precise results.</p>
+                </div>
+                <div class="why-use-box">
+                    <h3>Easy to Use</h3>
+                    <p>1. Simple input fields for scores.</p>
+                    <p>2. Clear and intuitive interface.</p>
+                </div>
+                <div class="why-use-box">
+                    <h3>Grade Predictor</h3>
+                    <p>1. Predicts the required marks for desired grades.</p>
+                    <p>2. Helps in strategic preparation.</p>
+                </div>
+            </div>
+        </section>
+        <section id="how-to-use">
+            <h2>How to Use the Calculator?</h2>
+            <div class="steps-container">
+                <p>To convert your marks to percentages for Joint courses:</p>
+                <ol>
+                    <li>Determine the total marks you scored in a test.</li>
+                    <li>Identify the weightage of the test (e.g., 10%).</li>
+                    <li>Convert the weightage to a decimal (e.g., 10% becomes 10/100 = 0.1).</li>
+                    <li>Multiply your scored marks by the decimal value.</li>
+                    <li>Divide the total marks by result to get the percentage value.</li>
+                </ol>
+                <p>For example, if you scored 25 marks in Cycle Test 1, which has a total weightage of 10%:</p>
+                <ul>
+                    <li>25 marks x 0.1 = 2.5</li>
+                    <li>2.5/4 = 10%</li>
+                </ul>
+            </div>
+            <p class="disclaimer">
+                * Disclaimer: Marks must be converted to percentages before calculations for joint courses.
+            </p>
+        </section>
+    </main>
+    <footer>
+        <div class="footer-left">
+            &copy; 2024 SRM Institute
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const homeButton = document.getElementById("home-button");
+            if (homeButton) {
+                homeButton.addEventListener("click", function() {
+                    window.location.href = "index.html";
+                });
+            }
+
+            const whyUseBoxes = document.querySelectorAll('.why-use-box');
+            whyUseBoxes.forEach(box => {
+                box.addEventListener('click', function() {
+                    box.classList.add('move-box');
+                    setTimeout(() => {
+                        box.classList.remove('move-box');
+                    }, 300);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
