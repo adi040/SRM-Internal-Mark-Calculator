@@ -10,13 +10,21 @@
 </head>
 <body>
     <header>
-        <div class="menu">
-            <button onclick="navigateToPage('index.html')"id="home-button">Home</button>
-            <button onclick="navigateToPage('howtouse.html')">How to Use?</button>
-
+        <div class="menu-icon" onclick="toggleMenu()">
+            <i class="fas fa-bars"></i>
         </div>
         <h1>SRM Internal Mark Calculator</h1>
     </header>
+    
+    <nav class="side-menu" id="side-menu">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="howtouse.html">How to Use?</a></li>
+        </ul>
+        <div class="menu-icon close-menu" onclick="toggleMenu()">
+            <i class="fas fa-times"></i>
+        </div>
+    </nav>
 
     <div class="image-section">
         <img src="e2.png" alt="Background Image">
@@ -31,9 +39,7 @@
                 <p>
                     The <strong>SRM Internal Mark Calculator</strong> is a dedicated tool designed to simplify the calculation of internal marks for students at SRM Institute of Science and Technology. Keeping track of your academic performance can be challenging, especially when you have multiple courses and it also calculates the marks to be taken in Semester exam to get the desired grades.
                 </p>
-                <p>
-                    This calculator allows you to easily input your scores and instantly see your internal marks. Whether you follow the 2018 or 2021 regulation, this tool is tailored to meet the specific academic structure of SRM IST, ensuring accurate and quick results. Simplify your academic journey and focus on what matters most with the SRM Internal Mark Calculator.
-                </p>
+                
             </section>
             <div id="regulation-buttons" class="button-container">
                 <button id="regulation-2018" onclick="navigateToPage('course.html?regulation=2018')">Regulation 2018</button>
