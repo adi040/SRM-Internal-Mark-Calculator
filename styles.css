@@ -527,7 +527,7 @@ header {
     flex-direction: column;
     align-items: center;
     gap: 10px;
-    z-index: 1;
+    z-index: 100;
 }
 
 /* Button styling */
@@ -559,7 +559,7 @@ footer {
     box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
     color: white;
     margin-top: auto;
-    z-index: 1
+    z-index: 100;
 }
 
 /* Footer link styling */
@@ -591,8 +591,10 @@ footer {
     }
     
     button {
-        width: 100%; /* Full width for buttons on smaller screens */
+        width: 100%;
+        z-index: 1; /* Full width for buttons on smaller screens */
     }
+
 }
 /* Button container styling */
 .button-container {
@@ -601,6 +603,9 @@ footer {
     gap: 10px;
     flex-wrap: wrap; /* Allows buttons to wrap to the next line */
     margin-top: 20px;
+    position: relative; /* Position relative to ensure z-index works */
+    z-index: 10; /* Higher than the footer */
+    transform: translateY(-30px); /* Move the button container up */
 }
 
 /* Button styling */
@@ -613,7 +618,8 @@ footer {
     cursor: pointer;
     font-size: 16px;
     transition: background-color 0.3s;
-    margin-bottom: 10px; /* Spacing between buttons */
+    margin-bottom: 10px; 
+    z-index: 1;/* Spacing between buttons */
 }
 
 .button-container button:hover {
