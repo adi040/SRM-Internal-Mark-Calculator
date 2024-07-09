@@ -2,15 +2,36 @@ document.addEventListener("DOMContentLoaded", function () {
     const inputFields = document.getElementById("input-fields");
     const resultsDiv = document.getElementById("results");
 
-    // Helper function to navigate to another page
-    window.navigateToPage = function (url) {
-        window.location.href = url;
-    };
+    // Function to navigate to a new page
+    function navigateToPage(page) {
+        window.location.href = page;
+    }
+
+    // Function to toggle the side menu
+    function toggleMenu() {
+        const sideMenu = document.getElementById('side-menu');
+        if (sideMenu.style.left === '-250px' || !sideMenu.style.left) {
+            sideMenu.style.left = '0';
+        } else {
+            sideMenu.style.left = '-250px';
+        }
+    }
+    document.addEventListener('click', function(event) {
+        const sideMenu = document.getElementById('side-menu');
+        const menuToggle = document.getElementById('menu-toggle');
+        if (sideMenu && menuToggle && !menuToggle.contains(event.target) && !sideMenu.contains(event.target)) {
+            sideMenu.style.left = '-250px';
+        }
+    });
+
+    // Expose functions to global scope
+    window.toggleMenu = toggleMenu;
+    window.navigateToPage = navigateToPage;
 
     // Add event listener to the home button
     const homeButton = document.getElementById("home-button");
     if (homeButton) {
-        homeButton.addEventListener("click", function() {
+        homeButton.addEventListener("click", function () {
             navigateToPage("index.html");
         });
     }
@@ -99,7 +120,6 @@ document.addEventListener("DOMContentLoaded", function () {
     window.calculateMarks = function () {
         const params = getQueryParams();
         let totalInternal = 0;
-        
 
         const inputs = document.querySelectorAll('#input-fields input');
         if (!validateInputs(inputs)) {
@@ -108,24 +128,23 @@ document.addEventListener("DOMContentLoaded", function () {
             scrollToResults();
             return;
         }
-        
-        if (params.regulation === '2018' && params.course === 'theory'){
+
+        if (params.regulation === '2018' && params.course === 'theory') {
             const ct1 = parseFloat(document.getElementById('ct1').value) || 0;
             const ct2 = parseFloat(document.getElementById('ct2').value) || 0;
             const ct3 = parseFloat(document.getElementById('ct3').value) || 0;
-            let ct4 = parseFloat(document.getElementById('ct4').value) || 0;
-            totalInternal = (ct1/2.5) + (ct2/3.3333333333333333333333333333333) + (ct3/3.3333333333333333333333333333333) + ct4
-        }
-        else if(params.regulation === '2021' && params.course === 'theory'){
+            const ct4 = parseFloat(document.getElementById('ct4').value) || 0;
+            totalInternal = (ct1 / 2.5) + (ct2 / 3.333333333333333) + (ct3 / 3.333333333333333) + ct4;
+        } else if (params.regulation === '2021' && params.course === 'theory') {
             const ct1 = parseFloat(document.getElementById('ct1').value) || 0;
             const ct2 = parseFloat(document.getElementById('ct2').value) || 0;
-            totalInternal = (ct1) + (ct2/5)
-        }
-        else{
+            totalInternal = ct1 + (ct2 / 5);
+        } else {
             inputs.forEach(input => {
                 totalInternal += parseFloat(input.value) || 0;
             });
         }
+
         const grades = [
             { grade: 'O', marks: 91 },
             { grade: 'A+', marks: 81 },
@@ -190,5 +209,10 @@ document.addEventListener("DOMContentLoaded", function () {
         resultsDiv.innerHTML = resultHTML;
         resultsDiv.style.display = "block";
         scrollToResults();
+    };
+
+    // Initialize the input fields based on the current page
+    if (inputFields) {
+        handleInputFields();
     }
 });
