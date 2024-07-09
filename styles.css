@@ -527,6 +527,7 @@ header {
     flex-direction: column;
     align-items: center;
     gap: 10px;
+    z-index: 1;
 }
 
 /* Button styling */
