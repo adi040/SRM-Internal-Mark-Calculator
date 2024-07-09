@@ -13,9 +13,9 @@ body {
 header {
     background-color: #4CAF50;
     color: white;
-    padding: 20px;
+    padding: 00px;
     text-align: center;
-    width: 100%;
+    width: 50%;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     position: relative;
 }
@@ -425,7 +425,7 @@ body {
 header {
     background-color: #4CAF50;
     color: white;
-    padding: 20px;
+    padding: 20px 0px;
     text-align: center;
     width: 100%;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -435,7 +435,7 @@ header {
 /* Menu icon styling */
 .menu-icon {
     position: absolute;
-    top: 20px;
+    top: 40px;
     left: 20px;
     cursor: pointer;
     color: white;
@@ -496,7 +496,7 @@ header {
     align-items: center;
     justify-content: center; /* Center content vertically */
     color: white;
-    background-color: rgba(0, 0, 0, 0.5); /* Adds a dark overlay to enhance text visibility */
+    background-color: rgba(0, 0, 0, 0.3); /* Adds a dark overlay to enhance text visibility */
     padding: 20px;
     gap: 20px; /* Adds space between sections */
     box-sizing: border-box; /* Ensures padding is included in the width/height */
@@ -552,7 +552,7 @@ footer {
     flex-direction: column; /* Stack items vertically */
     justify-content: center;
     align-items: center;
-    padding: 10px;
+    padding: 20px 0px;
     width: 100%;
     background-color: #4CAF50;
     box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
