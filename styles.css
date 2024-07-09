@@ -630,3 +630,16 @@ footer {
         margin-bottom: 5px; /* Reduced spacing between buttons */
     }
 }
+@media (max-width: 768px) {
+    header {
+        padding-top: 60px; /* Adjust this value as necessary */
+    }
+
+    .menu-icon {
+        top: 20px; /* Adjust this value as necessary */
+    }
+
+    .side-menu {
+        top: 60px; /* Ensure this matches the padding-top of the header */
+    }
+}
