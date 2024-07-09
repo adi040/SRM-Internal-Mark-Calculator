@@ -5,15 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>How to Use - SRM Internal Mark Calculator</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script src="js.js" defer></script>
 </head>
 <body>
     <header>
-        <div class="menu">
-            <button id="home-button">Home</button>
+        <div class="menu-icon" onclick="toggleMenu()">
+            <i class="fas fa-bars"></i>
         </div>
         <h1>How to Use SRM Internal Mark Calculator</h1>
     </header>
+    <nav class="side-menu" id="side-menu">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="howtouse.html">How to Use?</a></li>
+        </ul>
+        <div class="menu-icon close-menu" onclick="toggleMenu()">
+            <i class="fas fa-times"></i>
+        </div>
+    </nav>
     <main>
+        
         <section id="why-use">
             <h2>Why Use SRM Internal Mark Calculator?</h2>
             <div class="why-use-container">
@@ -81,6 +93,11 @@
                 });
             });
         });
+
+        function toggleMenu() {
+            const sideMenu = document.getElementById('side-menu');
+            sideMenu.classList.toggle('active');
+        }
     </script>
 </body>
 </html>
