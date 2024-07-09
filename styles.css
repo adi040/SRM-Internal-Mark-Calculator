@@ -605,7 +605,7 @@ footer {
     margin-top: 20px;
     position: relative; /* Position relative to ensure z-index works */
     z-index: 10; /* Higher than the footer */
-    transform: translateY(-30px); /* Move the button container up */
+    transform: translateY(-20px); /* Move the button container up */
 }
 
 /* Button styling */
