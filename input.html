@@ -5,28 +5,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SRM Internal Mark Calculator - Input Marks</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <script src="js.js" defer></script>
 </head>
 <body>
     <header>
+        <div class="menu-icon" onclick="toggleMenu()">
+            <i class="fas fa-bars"></i>
+        </div>
         <h1>SRM Internal Mark Calculator</h1>
     </header>
-    <div class="menu">
-        <button onclick="navigateToPage('index.html')" id="home-button">Home</button>
-        <button onclick="navigateToPage('howtouse.html')">How to Use?</button>
-    </div>
-    <div class="input-container" id="input-fields">
-        <!-- Input fields will be dynamically inserted here based on URL parameters -->
-        <!-- Example input fields with a specific class for targeting -->
-        <label for="cycle-test-1">Cycle Test 1 Marks:</label>
-        <input type="number" id="cycle-test-1" class="input-small" placeholder="Enter marks">
-        
-        <label for="cycle-test-2">Cycle Test 2 Marks:</label>
-        <input type="number" id="cycle-test-2" class="input-small" placeholder="Enter marks">
-    </div>
-    <button id="calculate-button" onclick="calculateMarks()">Calculate</button>
-    <div id="results" style="display: none;">
-        <!-- Calculation results will be displayed here -->
-    </div>
+    <nav class="side-menu" id="side-menu">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="howtouse.html">How to Use?</a></li>
+        </ul>
+        <div class="menu-icon close-menu" onclick="toggleMenu()">
+            <i class="fas fa-times"></i>
+        </div>
+    </nav>
+    <main>
+        <div class="input-container" id="input-fields">
+            <!-- Input fields will be dynamically generated here -->
+        </div>
+        <div class="button-container">
+            <button onclick="calculateMarks()">Calculate Marks</button>
+        </div>
+        <div id="results"></div>
+    </main>
+    <footer>
+        <div class="footer-left">
+            © Designed by Adithyan
+        </div>
+        <div class="footer-center">
+            <a href="https://github.com/adi040" target="_blank" class="footer-icon">
+                <i class="fab fa-github"></i> GitHub
+            </a>
+            <a href="https://www.linkedin.com/in/p-adithyan/" target="_blank" class="footer-icon">
+                <i class="fab fa-linkedin"></i> LinkedIn
+            </a>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const sideMenu = document.getElementById('side-menu');
+            sideMenu.classList.toggle('active');
+        }
+    </script>
 </body>
 </html>
