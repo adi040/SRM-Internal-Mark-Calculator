@@ -16,6 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
             sideMenu.style.left = '-250px';
         }
     }
+
     document.addEventListener('click', function(event) {
         const sideMenu = document.getElementById('side-menu');
         const menuToggle = document.getElementById('menu-toggle');
@@ -93,11 +94,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 `;
             }
         }
-    }
-
-    // Initialize the input fields based on the current page
-    if (inputFields) {
-        handleInputFields();
     }
 
     // Function to validate inputs
