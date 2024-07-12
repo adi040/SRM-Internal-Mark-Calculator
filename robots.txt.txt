@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+
+Sitemap: https://adi040.github.io/SRM-Internal-Mark-Calculator/sitemap.xml
