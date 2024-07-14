@@ -1,44 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-       <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-M3N7TRK3W4"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-M3N7TRK3W4');
-</script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-M3N7TRK3W4"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-M3N7TRK3W4');
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SRM Internal Mark Calculator - Course Type</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <script src="js.js" defer></script>
+    <style>
+        /* Menu Bar Styles */
+        .side-menu {
+            position: fixed;
+            top: 0;
+            left: -250px;
+            width: 250px;
+            height: 100%;
+            background-color: #111;
+            transition: left 0.3s ease;
+            overflow-y: auto;
+            padding-top: 20px;
+            z-index: 1000;
+        }
+        .side-menu.active {
+            left: 0;
+        }
+        .side-menu ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        .side-menu ul li {
+            text-align: left;
+        }
+        .side-menu ul li a {
+            text-decoration: none;
+            color: #fff;
+            display: block;
+            padding: 15px 20px;
+            font-size: 1.2em;
+            transition: background-color 0.3s ease;
+        }
+        .side-menu ul li a:hover {
+            background-color: #555;
+        }
+        .menu-icon {
+            cursor: pointer;
+            color: #fff;
+            font-size: 1.5em;
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            z-index: 1100;
+        }
+        .menu-icon.close-menu {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .side-menu {
+                width: 200px;
+            }
+           
+        }
+        @media (max-width: 480px) {
+            .side-menu {
+                width: 150px;
+            }
+            .menu-icon {
+                top: 10px;
+                left: 10px;
+            }
+        }
+    </style>
 </head>
 <body>
+    <!-- Header -->
     <header>
         <div class="menu-icon" onclick="toggleMenu()">
             <i class="fas fa-bars"></i>
         </div>
         <h1>SRM Internal Mark Calculator</h1>
     </header>
+    
+    <!-- Side Menu -->
     <nav class="side-menu" id="side-menu">
         <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="howtouse.html">How to Use?</a></li>
+            <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="howtouse.html"><i class="fas fa-question-circle"></i> How to Use?</a></li>
+            <li><a href="about.html"><i class="fas fa-user"></i> About</a></li>
+            <li><a href="feedback.html" class="active"><i class="fas fa-comments"></i> Feedback</a></li>
+
         </ul>
         <div class="menu-icon close-menu" onclick="toggleMenu()">
             <i class="fas fa-times"></i>
         </div>
     </nav>
     
+    <!-- Course Type Buttons -->
     <div id="course-buttons" class="button-container">
         <h2>Select Course Type</h2>
         <button id="theory-button" onclick="navigateToPage('input.html?course=theory&regulation=' + new URLSearchParams(window.location.search).get('regulation'))">Theory</button>
         <button id="joint-button" onclick="navigateToPage('input.html?course=joint&regulation=' + new URLSearchParams(window.location.search).get('regulation'))">Joint</button>
     </div>
+    
+    <!-- Footer -->
     <footer>
         <div class="footer-center course-footer"> <!-- Specific class for course.html -->
             <a href="https://github.com/adi040" target="_blank" class="footer-icon">
@@ -50,6 +123,7 @@
         </div>
     </footer>
 
+    <!-- JavaScript for sidebar toggle -->
     <script>
         function toggleMenu() {
             const sideMenu = document.getElementById('side-menu');
