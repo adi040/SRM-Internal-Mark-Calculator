@@ -23,7 +23,27 @@ document.addEventListener("DOMContentLoaded", function () {
         if (sideMenu && menuToggle && !menuToggle.contains(event.target) && !sideMenu.contains(event.target)) {
             sideMenu.style.left = '-250px';
         }
+        
     });
+    function toggleMenu() {
+        const sideMenu = document.getElementById('side-menu');
+        const overlay = document.querySelector('.overlay');
+        const content = document.querySelector('.content');
+        
+        if (sideMenu.style.left === '0px') {
+            sideMenu.style.left = '-250px';
+            overlay.style.filter = 'brightness(100%)';
+            content.style.filter = 'brightness(100%)';
+        } else {
+            sideMenu.style.left = '0px';
+            overlay.style.filter = 'brightness(60%)';
+            content.style.filter = 'brightness(60%)';
+        }
+    }
+
+    
+    
+    
 
     // Expose functions to global scope
     window.toggleMenu = toggleMenu;
