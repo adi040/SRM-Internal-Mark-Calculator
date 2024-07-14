@@ -46,4 +46,4 @@ No login or registration is required.
 
 For detailed instructions on how to use the calculator, visit the "How to Use?" page available on the website.
 ## Support and Feedback
-For any questions, feedback, or assistance, please contact us at srminternal24@gmail.com.
+For any questions, feedback, or assistance, please contact at srminternal24@gmail.com.
