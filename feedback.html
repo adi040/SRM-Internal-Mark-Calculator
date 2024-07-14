@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google Tag Manager -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-M3N7TRK3W4"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-M3N7TRK3W4');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - SRM Internal Mark Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        /* General Styles */
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0; /* Match background color */
+        }
+
+        /* Header Styles */
+        .header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 15px 0;
+            position: relative; /* Ensure relative positioning for absolute child elements */
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 1.5em;
+        }
+
+        /* Navigation Styles */
+        .side-menu {
+            position: fixed;
+            top: 0;
+            left: -250px; /* Initially hide off screen */
+            width: 250px;
+            height: 100%;
+            background-color: #111;
+            transition: left 0.3s ease;
+            overflow-y: auto;
+            padding-top: 20px;
+            z-index: 1000; /* Ensure menu is above content */
+        }
+        .side-menu.show {
+            left: 0;
+        }
+        .side-menu ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        .side-menu ul li {
+            text-align: left; /* Align text to the left */
+        }
+        .side-menu ul li a {
+            text-decoration: none;
+            color: #fff;
+            display: block;
+            padding: 15px 20px; /* Adjusted padding */
+            font-size: 1.2em;
+            transition: background-color 0.3s ease; /* Smooth transition on hover */
+        }
+        .side-menu ul li a:hover {
+            background-color: #0e36c7;
+        }
+        .menu-icon {
+            cursor: pointer;
+            color: #fff;
+            font-size: 1.5em;
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            z-index: 1100; /* Ensure icon is above menu */
+        }
+        .menu-icon.close-menu {
+            display: none;
+        }
+
+        /* Content Styles */
+        .content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .image-section {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        .image-section img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        #contact {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            margin: 20px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden; /* Ensure contents don't overflow */
+        }
+        iframe {
+            width: 100%;
+            height: 400px; /* Adjust height as needed */
+            border: none;
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 3px 0;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+        .footer-center {
+            margin-top: 10px;
+        }
+        .footer-center a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 1.2em;
+        }
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            .side-menu {
+                width: 200px;
+            }
+            
+        }
+        @media (max-width: 480px) {
+            .side-menu {
+                width: 150px;
+            }
+            .menu-icon {
+                top: 10px; /* Adjust top position for smaller screens */
+                left: 10px; /* Adjust left position for smaller screens */
+            }
+            #contact {
+                margin: 10px; /* Adjust margin for smaller screens */
+                padding: 15px; /* Adjust padding for smaller screens */
+            }
+            iframe {
+                height: 300px; /* Adjust iframe height for smaller screens */
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="menu-icon" onclick="toggleMenu()">
+            <i class="fas fa-bars"></i>
+        </div>
+        <h1>SRM Internal Mark Calculator</h1>
+    </header>
+    
+    <!-- Side Menu -->
+    <nav class="side-menu" id="side-menu">
+        <ul>
+            <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="howtouse.html"><i class="fas fa-question-circle"></i> How to Use?</a></li>
+            <li><a href="about.html"><i class="fas fa-user"></i> About</a></li>
+            <li><a href="feedback.html" class="active"><i class="fas fa-comments"></i> Feedback</a></li>
+        </ul>
+        <div class="menu-icon close-menu" onclick="toggleMenu()">
+            <i class="fas fa-times"></i>
+        </div>
+    </nav>
+
+    <!-- Content Section -->
+    <div class="content">
+        <div class="image-section">
+            <img src="e2.png" alt="Background Image">
+            <div class="overlay">
+                <!-- Contact Form Section -->
+                <section id="contact">
+                    <h2>Contact Us</h2>
+                    <!-- Embed the Google Form here -->
+                    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeHNI_pigCV-8l31OlHq73ysSmvZ-99_wQw6EL3xH92tJ_3IA/viewform?embedded=true" width="640" height="1050" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-left">
+            © Designed by Adithyan
+        </div>
+        <div class="footer-center">
+            <a href="https://github.com/adi040" target="_blank" class="footer-icon">
+                <i class="fab fa-github"></i> GitHub
+            </a>
+            <a href="https://www.linkedin.com/in/p-adithyan/" target="_blank" class="footer-icon">
+                <i class="fab fa-linkedin"></i> LinkedIn
+            </a>
+        </div>
+    </footer>
+
+    <!-- JavaScript for sidebar toggle -->
+    <script src="js.js"></script>
+</body>
+</html>
