@@ -1,40 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-           <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-M3N7TRK3W4"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-M3N7TRK3W4"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
 
-  gtag('config', 'G-M3N7TRK3W4');
-</script>
+        gtag('config', 'G-M3N7TRK3W4');
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>How to Use - SRM Internal Mark Calculator</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        /* CSS for centering content */
+        .middle-section {
+            text-align: center;
+            padding: 20px; /* Added padding for better spacing */
+        }
+        .middle-section .formula-list {
+            display: inline-block;
+            text-align: left;
+            margin: 0 auto;
+            max-width: 600px; /* Adjust width as needed */
+            padding-left: 0; /* Remove default padding */
+        }
+        .middle-section .formula-list li {
+            text-align: right;
+            margin-bottom: 10px; /* Added margin bottom for list items */
+        }
+        
+        /* Menu Bar Styles */
+        .side-menu {
+            position: fixed;
+            top: 0;
+            left: -250px;
+            width: 250px;
+            height: 100%;
+            background-color: #111;
+            transition: left 0.3s ease;
+            overflow-y: auto;
+            padding-top: 20px;
+            z-index: 1000;
+        }
+        .side-menu.show {
+            left: 0;
+        }
+        .side-menu ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        .side-menu ul li {
+            text-align: left;
+        }
+        .side-menu ul li a {
+            text-decoration: none;
+            color: #fff;
+            display: block;
+            padding: 15px 20px;
+            font-size: 1.2em;
+            transition: background-color 0.3s ease;
+        }
+        .side-menu ul li a:hover {
+            background-color: #dc9120;
+        }
+        .menu-icon {
+            cursor: pointer;
+            color: #fff;
+            font-size: 1.5em;
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            z-index: 1100;
+        }
+        .menu-icon.close-menu {
+        display: none;
+    }
+        
+
+        @media (max-width: 768px) {
+            .side-menu {
+                width: 200px;
+            }
+            
+        }
+        @media (max-width: 480px) {
+            .side-menu {
+                width: 150px;
+            }
+            .menu-icon {
+                top: 10px;
+                left: 10px;
+            }
+        }
+    </style>
     <script src="js.js" defer></script>
 </head>
 <body>
-    <header>
+    <!-- Header -->
+    <header class="header">
         <div class="menu-icon" onclick="toggleMenu()">
             <i class="fas fa-bars"></i>
         </div>
         <h1>How to Use SRM Internal Mark Calculator</h1>
     </header>
+    
+    <!-- Side Menu -->
     <nav class="side-menu" id="side-menu">
         <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="howtouse.html">How to Use?</a></li>
+            <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="howtouse.html"><i class="fas fa-question-circle"></i> How to Use?</a></li>
+            <li><a href="about.html"><i class="fas fa-user"></i> About</a></li>
+            <li><a href="feedback.html" class="active"><i class="fas fa-comments"></i> Feedback</a></li>
+
+
         </ul>
         <div class="menu-icon close-menu" onclick="toggleMenu()">
             <i class="fas fa-times"></i>
         </div>
     </nav>
+
+    <!-- Main Content -->
     <main>
-        
         <section id="why-use">
             <h2>Why Use SRM Internal Mark Calculator?</h2>
             <div class="why-use-container">
@@ -55,70 +146,45 @@
                 </div>
             </div>
         </section>
+        
         <section id="how-to-use">
-            <h2>How to Use the Calculator?</h2>
-            <div class="steps-container">
-                <p>To convert your marks to percentages for joint courses:</p>
-<ol>
-    <li><b>Find Total Marks</b>: Determine the total marks of the test.</li>
-    <li><b>Identify Weightage</b>: Find the weightage of the test (e.g., 10%).</li>
-    <li><b>Convert Weightage</b>: Change the weightage percentage to decimal (e.g., 10% becomes 10/100 = 0.1).</li>
-    <li><b>Calculate Weighted Marks</b>: Multiply the total marks by the decimal value to get the weighted marks.</li>
-    <li><b>Find Percentage</b>: Divide the marks you scored by the weighted marks to get the percentage.</li>
-</ol>
-
-<p><b>Example:</b></p>
-<ul>
-    <li>
-        <p>Let's say the total marks in Cycle Test 1 is 25, and the weightage is 10%. If you scored 24 marks in Cycle Test 1:</p>
-        <ul>
-            <li><b>Total Marks</b>: 25</li>
-            <li><b>Weightage</b>: 10%</li>
-            <li><b>Convert Weightage</b>: 10% = 0.1</li>
-            <li><b>Calculate Weighted Marks</b>: 25 marks × 0.1 = 2.5 weighted marks</li>
-            <li><b>Find Percentage</b>: 24 marks (scored) / 2.5 (weighted marks) = 9.6%</li>
-        </ul>
-        <p>So, in this case, your percentage for Cycle Test 1 would be 9.6%.</p>
-    </li>
-</ul>
-
-                
+            <h2>Conversion of Marks to Percentage for Joint Courses</h2>
+            <div class="middle-section">
+                <h3>Why?</h3>
+                <p>Internal lab practical marks can't be determined, so marks can be calculated only by percentage value.</p>
+                <p>For Theory Course directly enter your scores in marks.</p>
+                <h3>Calculations</h3>
+                <div class="formula-list">
+                    <ol>
+                        <li><b>Result</b>: Result = Total marks / Weightage</li>
+                        <li><b>Scored percentage</b>: Scored mark / Result</li>
+                    </ol>
+                </div>
+                <p><b>Example:</b></p>
+                <ul>
+                    <li>
+                        <p>Total Marks = 25</p>
+                        <p>Scored Marks = 24</p>
+                        <p>Weightage(%) = 10</p>
+                        <p>Result: 25 / 10 = 2.5</p>
+                        <p>Scored percentage: 24 / 2.5 = 9.6%</p>
+                    </li>
+                </ul>
+                <p class="disclaimer">
+                    * Disclaimer: Marks must be converted to percentages before calculations for joint courses.
+                </p>
             </div>
-            <p class="disclaimer">
-                * Disclaimer: Marks must be converted to percentages before calculations for joint courses.
-            </p>
         </section>
     </main>
+
+    <!-- Footer Section -->
     <footer>
         <div class="footer-left">
             &copy; 2024 SRM Institute
         </div>
     </footer>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const homeButton = document.getElementById("home-button");
-            if (homeButton) {
-                homeButton.addEventListener("click", function() {
-                    window.location.href = "index.html";
-                });
-            }
-
-            const whyUseBoxes = document.querySelectorAll('.why-use-box');
-            whyUseBoxes.forEach(box => {
-                box.addEventListener('click', function() {
-                    box.classList.add('move-box');
-                    setTimeout(() => {
-                        box.classList.remove('move-box');
-                    }, 300);
-                });
-            });
-        });
-
-        function toggleMenu() {
-            const sideMenu = document.getElementById('side-menu');
-            sideMenu.classList.toggle('active');
-        }
-    </script>
+    <!-- JavaScript for sidebar toggle -->
+    
 </body>
 </html>
