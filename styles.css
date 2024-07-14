@@ -105,6 +105,9 @@ header {
     color: white;
     text-align: center;
 }
+.content {
+    flex: 1;
+    transition: filter 0.3s ease;}
 
 /* Welcome section styling */
 #welcome {
@@ -142,6 +145,7 @@ header {
     cursor: pointer;
     font-size: 16px;
     transition: background-color 0.3s;
+    
 }
 
 .button-container button:hover {
@@ -233,8 +237,8 @@ footer {
 /* Side menu styling */
 .side-menu {
     position: fixed;
-    left: -250px;
     top: 0;
+    left: -250px; /* Off-screen initially */
     width: 250px;
     height: 100%;
     background-color: #333;
@@ -263,7 +267,9 @@ footer {
 .side-menu ul li a:hover {
     background-color: #575757;
 }
-
+.dimmed {
+    filter: brightness(0.5); /* Adjust brightness as needed */
+}
 /* Menu icon styling */
 .menu-icon {
     position: absolute;
@@ -274,10 +280,11 @@ footer {
     font-size: 24px;
 }
 
+
 /* Responsive Design */
 @media (max-width: 768px) {
-    .button-container {
-        flex-direction: column;
+    .menu-icon.close-menu {
+        display: none;
     }
     
     #about, #welcome, #results {
@@ -408,6 +415,7 @@ footer {
     
     .button-container button {
         width: 100%; /* Full width buttons on smaller screens */
+        
     }
 }
 body {
@@ -440,6 +448,7 @@ header {
     cursor: pointer;
     color: white;
     font-size: 24px;
+    
 }
 
 /* Side menu styling */
@@ -453,7 +462,9 @@ header {
     padding-top: 60px;
     transition: left 0.3s;
     z-index: 999;
+    
 }
+
 
 .side-menu ul {
     list-style-type: none;
@@ -470,6 +481,7 @@ header {
     font-size: 18px;
     display: block;
     transition: background-color 0.3s;
+    
 }
 
 .side-menu ul li a:hover {
@@ -478,12 +490,19 @@ header {
 
 /* Image Section with Overlay */
 .image-section {
-    position: relative;
+    position: relative; 
     width: 100%;
     height: 100vh; /* Full height to ensure image covers the section */
     background: url('e2.png') no-repeat center center fixed; /* Background image */
     background-size: cover; /* Ensure image covers the entire section */
+    background-repeat: no-repeat;
+    
 }
+.side-menu:checked section{
+    transform: scale(1.2);
+    filter: brightness(20%);
+}
+
 
 .overlay {
     position: absolute;
@@ -500,6 +519,7 @@ header {
     padding: 20px;
     gap: 20px; /* Adds space between sections */
     box-sizing: border-box; /* Ensures padding is included in the width/height */
+    
 }
 
 /* Welcome section styling */
@@ -627,17 +647,7 @@ footer {
 }
 
 /* Responsive Design */
-@media (max-width: 768px) {
-    .button-container {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .button-container button {
-        width: 100%; /* Full width buttons on smaller screens */
-        margin-bottom: 5px; /* Reduced spacing between buttons */
-    }
-}
+
 @media (max-width: 768px) {
     header {
         padding-top: 60px; /* Adjust this value as necessary */
@@ -650,4 +660,9 @@ footer {
     .side-menu {
         top: 60px; /* Ensure this matches the padding-top of the header */
     }
+    .button-container button {
+        width: calc(100% - 20px); /* Full width buttons with margin */
+        max-width: 300px; /* Set a max-width to ensure buttons are not too wide */
+    }
+
 }
