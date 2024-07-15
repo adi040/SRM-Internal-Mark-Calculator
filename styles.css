@@ -242,7 +242,7 @@ footer {
     width: 250px;
     height: 100%;
     background-color: #333;
-    padding-top: 60px;
+    padding-top: 1000px;
     transition: left 0.3s;
     z-index: 999;
 }
@@ -261,11 +261,23 @@ footer {
     text-decoration: none;
     font-size: 18px;
     display: block;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s color 0.3s;
+    border-radius: 5px;
+   
 }
+#joint-button{
+    padding-left: 26px;
+    padding-right: 26px;
+}
+.side-menu ul li:first-child {
+    margin-top: 20px;
+}
+
 
 .side-menu ul li a:hover {
     background-color: #575757;
+    color: black;
+
 }
 .dimmed {
     filter: brightness(0.5); /* Adjust brightness as needed */
