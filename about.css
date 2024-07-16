@@ -1,0 +1,14 @@
+
+
+/* Fixed Position for Menu Icon when Side Menu is Opened */
+
+
+/* Adjust margin for the Home link */
+#ab-home {
+    margin-top: 40px;
+}
+
+/* Active state for menu icon */
+.fa-bars:active {
+    position: fixed;
+}
