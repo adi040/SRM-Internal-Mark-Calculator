@@ -15,7 +15,9 @@
     <title>SRM Internal Mark Calculator</title>
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    
     <!-- Custom CSS -->
+    <link rel="stylesheet" href="about.css">
     <style>
         /* Global Styles */
         body {
@@ -79,7 +81,7 @@
         .side-menu ul {
             list-style-type: none;
             padding: 0;
-            margin: 0;
+            
         }
         .side-menu ul li {
             text-align: left;
@@ -91,6 +93,7 @@
             padding: 15px 20px;
             font-size: 1.2em;
             transition: background-color 0.3s ease;
+     
         }
         .side-menu ul li a:hover {
             background-color: #b00606;
@@ -283,6 +286,7 @@
                 left: 0;
             }
         }
+        
     </style>
 </head>
 <body>
@@ -297,7 +301,7 @@
     <!-- Side Menu -->
     <nav class="side-menu" id="side-menu">
         <ul>
-            <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+            <li id="ab-home"><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
             <li><a href="howtouse.html"><i class="fas fa-question-circle"></i> How to Use?</a></li>
             <li><a href="about.html"><i class="fas fa-user"></i> About</a></li>
             <li><a href="feedback.html" class="active"><i class="fas fa-comments"></i> Feedback</a></li>
@@ -340,18 +344,14 @@
             </ul>
         </div>
     </footer>
-
+    <script>src="js.js"</script>
     <!-- JavaScript for Side Menu Toggle -->
-    <script src="js.js"></script>
     <script>
         function toggleMenu() {
-            var sideMenu = document.getElementById('side-menu');
-            var menuIcon = document.getElementsByClassName('menu-icon')[0];
-            var closeMenuIcon = document.getElementsByClassName('menu-icon close-menu')[0];
-
-            sideMenu.classList.toggle('show');
-            menuIcon.classList.toggle('close-menu');
-            closeMenuIcon.classList.toggle('close-menu');
+            var menu = document.getElementById("side-menu");
+            var menuIcon = document.querySelector(".menu-icon");
+            menu.classList.toggle("show");
+            menuIcon.classList.toggle("fixed");
         }
     </script>
 </body>
