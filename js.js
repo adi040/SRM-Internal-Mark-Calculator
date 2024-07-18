@@ -10,26 +10,9 @@ document.addEventListener("DOMContentLoaded", function () {
     // Function to toggle the side menu
     function toggleMenu() {
         const sideMenu = document.getElementById('side-menu');
-        if (sideMenu.style.left === '-250px' || !sideMenu.style.left) {
-            sideMenu.style.left = '0';
-        } else {
-            sideMenu.style.left = '-250px';
-        }
-    }
-
-    document.addEventListener('click', function(event) {
-        const sideMenu = document.getElementById('side-menu');
-        const menuToggle = document.getElementById('menu-toggle');
-        if (sideMenu && menuToggle && !menuToggle.contains(event.target) && !sideMenu.contains(event.target)) {
-            sideMenu.style.left = '-250px';
-        }
-        
-    });
-    function toggleMenu() {
-        const sideMenu = document.getElementById('side-menu');
         const overlay = document.querySelector('.overlay');
         const content = document.querySelector('.content');
-        
+
         if (sideMenu.style.left === '0px') {
             sideMenu.style.left = '-250px';
             overlay.style.filter = 'brightness(100%)';
@@ -41,9 +24,13 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    
-    
-    
+    document.addEventListener('click', function (event) {
+        const sideMenu = document.getElementById('side-menu');
+        const menuToggle = document.getElementById('menu-toggle');
+        if (sideMenu && menuToggle && !menuToggle.contains(event.target) && !sideMenu.contains(event.target)) {
+            sideMenu.style.left = '-250px';
+        }
+    });
 
     // Expose functions to global scope
     window.toggleMenu = toggleMenu;
@@ -83,6 +70,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 `;
             } else if (params.course === 'joint') {
                 inputFields.innerHTML = `
+                    <p>To know how to calculate marks to percentage, click <a href="howtouse.html">here</a></p>
                     <label for="ct1">Cycle Test 1 (10%):</label>
                     <input type="number" id="ct1" max="10" min="0" required>
                     <label for="ct2">Cycle Test 2 (15%):</label>
@@ -105,6 +93,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 `;
             } else if (params.course === 'joint') {
                 inputFields.innerHTML = `
+                    <p>To know how to calculate marks to percentage, click <a href="howtouse.html">here</a></p>
                     <label for="ct1">Cycle Test 1 (30%):</label>
                     <input type="number" id="ct1" max="30" min="0" required>
                     <label for="ct2">Cycle Test 2 (30%):</label>
